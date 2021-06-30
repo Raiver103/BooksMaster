@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksMaster", "BooksMaster\BooksMaster.csproj", "{A9AB265C-88D2-49EE-A292-EF3A492A3A2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksMaster.BL", "BooksMaster.BL\BooksMaster.BL.csproj", "{E547E9CE-DCA6-4B31-8D3B-1EF7D1968D6F}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{E8CEBA36-D3E5-4553-8FDA-7CC45526A41A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9AB265C-88D2-49EE-A292-EF3A492A3A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9AB265C-88D2-49EE-A292-EF3A492A3A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9AB265C-88D2-49EE-A292-EF3A492A3A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9AB265C-88D2-49EE-A292-EF3A492A3A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E547E9CE-DCA6-4B31-8D3B-1EF7D1968D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E547E9CE-DCA6-4B31-8D3B-1EF7D1968D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E547E9CE-DCA6-4B31-8D3B-1EF7D1968D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E547E9CE-DCA6-4B31-8D3B-1EF7D1968D6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8CEBA36-D3E5-4553-8FDA-7CC45526A41A}.Debug|Any CPU.ActiveCfg = Debug
+		{E8CEBA36-D3E5-4553-8FDA-7CC45526A41A}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DEE938A-AC2A-45C6-A6D9-1ADBB3D11A15}
+	EndGlobalSection
+EndGlobal
