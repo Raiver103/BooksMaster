@@ -12,7 +12,7 @@ namespace BooksMaster.BL.User
         public readonly User user;
         public List<Pages> Pages { get; }
         public List<Book> Books { get; }
-        public List<NewPage> Sohr { get; }
+        public List<NewPage> Archive { get; }
         public int Read { get; set; }
 
         public BookController(User user)
@@ -20,7 +20,7 @@ namespace BooksMaster.BL.User
             this.user = user;
             Pages = LoadPages();
             Books = LoadBooks();
-            Sohr = LoadNewPage();
+            Archive = LoadNewPage();
         }
         
         public BookController() { }
@@ -32,16 +32,16 @@ namespace BooksMaster.BL.User
             if (act == null)
             {
                 Books.Add(book);
-                var exersize = new Pages(startPage, endPage , book, user, dateTime);
-                Pages.Add(exersize);
-                var newPages = new NewPage(exersize.FirstPage, exersize.AllPages, exersize.Book, exersize.User, exersize.DateTime);
-                Sohr.Add(newPages);
+                var newPage = new Pages(startPage, endPage , book, user, dateTime);
+                Pages.Add(newPage);
+                var newPages = new NewPage(newPage.FirstPage, newPage.AllPages, newPage.Book, newPage.User, newPage.DateTime);
+                Archive.Add(newPages);
 
                 SAVE();
             }
             else
             {
-                Console.WriteLine("\nThis name here yes");
+                Console.WriteLine("\nThis name bisy");
             }
             SAVE();
         }
@@ -73,7 +73,7 @@ namespace BooksMaster.BL.User
                 Pages.Add(newFirstPage);
                 
                 var newPages = new NewPage(newFirstPage.FirstPage, newFirstPage.AllPages, newFirstPage.Book, newFirstPage.User, newFirstPage.DateTime);
-                Sohr.Add(newPages);
+                Archive.Add(newPages);
 
                 Read = (newFirstPage.FirstPage - ChangeFirstBook.AllPages) - (ChangeFirstBook.FirstPage - ChangeFirstBook.AllPages);
 
@@ -118,7 +118,7 @@ namespace BooksMaster.BL.User
         {
             Save(Books);
             Save(Pages);
-            Save(Sohr);
+            Save(Archive);
         }
     }
 }

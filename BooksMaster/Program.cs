@@ -13,19 +13,19 @@ namespace BooksMaster
         static void Main(string[] args)
         {
             Console.WriteLine("Введите ваще имя чтобы войти!");
-            var name = Console.ReadLine();
+            var userName = Console.ReadLine();
 
-            var userController = new UserController(name);
+            var userController = new UserController(userName);
             var bookController = new BookController(userController.CurrentUser);
             if (userController.NewUserFlag)
             {
                 Console.WriteLine("Please press you age!");
-                var age = Console.ReadLine();
-                userController.NewUser(age);
+                var userAge = Console.ReadLine();
+                userController.NewUser(userAge);
               
             }
 
-            Console.WriteLine($"Привет! {userController.CurrentUser.Name}\n");
+            Console.WriteLine($"Hello! {userController.CurrentUser.Name}\n");
 
 
             if (!userController.NewUserFlag)
@@ -51,41 +51,41 @@ namespace BooksMaster
                 {
                     case ConsoleKey.E:
                         var nameBook = EnterBook();
-                        var first = ParseDouble("\npress first page");
-                        var all = ParseDouble("\npress all page");
-                        var date = ParseDate("\npress date read");
-                        bookController.Add(nameBook, first, all, date);
+                        var firstPage = ParseDouble("\npress first page");
+                        var allPage = ParseDouble("\npress all page");
+                        var dateRead = ParseDate("\npress date read");
+                        bookController.Add(nameBook, firstPage, allPage, dateRead);
                         Console.WriteLine("\nТвои книги: ");
                         CWInfo();
                         break;
                     case ConsoleKey.R:
                         Console.WriteLine("\npress name book");
-                        var delete = Console.ReadLine();
-                        bookController.DeleteBook(delete);
+                        var deleteNameBook = Console.ReadLine();
+                        bookController.DeleteBook(deleteNameBook);
                         Console.WriteLine("\nbook eleted!");
                         CWInfo();
                         break;
                     case ConsoleKey.T:
                         Console.WriteLine("press page book");
-                        var nameBookk = EnterBook();
-                        var page = ParseDouble("\npage");
-                        var dateRead = ParseDate("\ndate time");
-                        bookController.ChangeFirstPage(nameBookk.Name, page, dateRead);
+                        var nameBookEdit = EnterBook();
+                        var pageEdit = ParseDouble("\npage");
+                        var dateReadEdit = ParseDate("\ndate time");
+                        bookController.ChangeFirstPage(nameBookEdit.Name, pageEdit, dateReadEdit);
                         Console.WriteLine($"nice! you read {bookController.Read} pages! ");
                         Console.WriteLine("book editor!");
                         CWInfo();
                         break;
                     case ConsoleKey.Y:
                         Console.WriteLine("press new all page book");
-                        var nameBookkk = EnterBook();
-                        var allpage = ParseDouble("\nAll page:");
-                        bookController.ChangeAllPages(nameBookkk.Name, allpage);
+                        var nameBookAll = EnterBook();
+                        var allPageEdit = ParseDouble("\nAll page:");
+                        bookController.ChangeAllPages(nameBookAll.Name, allPageEdit);
                         Console.WriteLine("book editor!");
                         CWInfo();
                         break;
                     case ConsoleKey.U:
                         Console.WriteLine("**********************************************************");
-                        foreach (var item in bookController.Sohr)
+                        foreach (var item in bookController.Archive)
                         {
                             Console.WriteLine($" book: {item.Book}, first: {item.FirstPage}, all: {item.AllPages}, data: {item.DateTime}, ({bookController.Read}).");
                         }
@@ -102,11 +102,11 @@ namespace BooksMaster
                 return new Book(nameBook);
             }
 
-            int ParseDouble(string nname)
+            int ParseDouble(string nameBook)
             {
                 while (true)
                 {
-                    Console.WriteLine(nname);
+                    Console.WriteLine(nameBook);
                     if (int.TryParse(Console.ReadLine(), out int valye))
                     {
                         return valye;
@@ -118,11 +118,11 @@ namespace BooksMaster
                 }
             }
             
-            DateTime ParseDate(string nname)
+            DateTime ParseDate(string date)
             {
                 while (true)
                 {
-                    Console.WriteLine(nname);
+                    Console.WriteLine(date);
                     if (DateTime.TryParse(Console.ReadLine(), out DateTime valye))
                     {
                         return valye;

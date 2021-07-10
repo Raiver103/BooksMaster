@@ -27,25 +27,7 @@ namespace BooksMaster.BL.Controllers
                     return new List<T>();
                 }
             }
-        }
-        
-        public Pages Load() 
-        {
-            var formatter = new BinaryFormatter();
-            var fileName = "allPages.dat";
-
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                if (fs.Length > 0 && formatter.Deserialize(fs) is Pages items)
-                {
-                    return items;
-                }
-                else
-                {
-                    return new Pages();
-                }
-            }
-        }
+        } 
 
         public void Save<T>(List<T> item) where T : class
         {
@@ -56,17 +38,6 @@ namespace BooksMaster.BL.Controllers
             {
                 formatter.Serialize(fs, item);
             }
-        }
-        
-        public void Save<T>(Pages item) where T : class
-        {
-            var formatter = new BinaryFormatter();
-            var fileName = "allPages.dat";
-
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, item);
-            }
-        }
+        } 
     }
 }
